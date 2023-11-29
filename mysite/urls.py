@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from app_1.views import app_1_main
 from app_2.views import app_2_main
 from app_3.views import app_3_main
@@ -29,7 +29,7 @@ urlpatterns = [
     path('articles/<int:year>/<int:month>/', articles_views.month_archive),
 
 
-    path('app_1/', app_1_main),
+    path('app_1/', include('app_1.urls')),
     path('app_2/', app_2_main),
     path('app_3/', app_3_main),
     path('', app_1_main),
