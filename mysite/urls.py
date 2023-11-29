@@ -19,9 +19,15 @@ from django.urls import path
 from app_1.views import app_1_main
 from app_2.views import app_2_main
 from app_3.views import app_3_main
+import articles.views as articles_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('articles/2003/', articles_views.special_case_2003),
+    path('articles/<int:year>/', articles_views.year_archive),
+    path('articles/<int:year>/<int:month>/', articles_views.month_archive),
+
 
     path('app_1/', app_1_main),
     path('app_2/', app_2_main),
